@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply overflow-x-hidden bg-opacity-10 bg-gradient-to-br from-[#00b7ff9b] to-[#f43f5d98] text-[#fff] selection:bg-[#67769660] dark:bg-gradient-to-br dark:from-[#fd5e02ac] dark:to-[#6b4dff92];
+  }
+}
