@@ -2,12 +2,15 @@ import { useState, useEffect, useContext, createContext } from 'react'
 import type { ReactNode } from 'react'
 
 export type ITheme = 'light' | 'dark' | 'system'
+
 export type IResolvedTheme = 'light' | 'dark'
+
 export interface IThemeContext {
   theme: ITheme
   setTheme: (theme: ITheme) => void
   resolvedTheme: IResolvedTheme
 }
+
 export interface IThemeProviderProps {
   storageKey?: string
   defaultTheme?: ITheme
@@ -51,8 +54,8 @@ export function ThemeProvider({
   }
 
   const setTheme = (newTheme: ITheme) => {
-    updateTheme(newTheme)
     localStorage.setItem(storageKey, newTheme)
+    updateTheme(newTheme)
   }
 
   useEffect(() => {
