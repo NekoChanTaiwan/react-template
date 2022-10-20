@@ -1,6 +1,6 @@
 import { Heading } from '@/components/Heading'
 import { Counter } from '@/components/Counter'
-import { SwitchTheme } from '@/components/Theme'
+import { SwitchTheme } from '@/components/SwitchTheme'
 
 export function App() {
   return (
