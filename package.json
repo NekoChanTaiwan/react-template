@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "start": "vite preview",
     "format": "prettier --write .",
-    "updateAll": "pnpm up --latest"
+    "update": "pnpm up --latest"
   },
   "dependencies": {
     "@nanostores/react": "^0.4.0",
