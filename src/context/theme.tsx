@@ -2,7 +2,6 @@ import { useState, useEffect, useContext, createContext } from 'react'
 import type { ReactNode } from 'react'
 
 export type ITheme = 'light' | 'dark' | 'system'
-
 export type IResolvedTheme = 'light' | 'dark'
 
 export interface IThemeContext {
@@ -21,7 +20,6 @@ export interface IThemeProviderProps {
 }
 
 const themeContext = createContext<IThemeContext | {}>({})
-
 export const useTheme = () => useContext(themeContext) as IThemeContext
 
 export function ThemeProvider({
