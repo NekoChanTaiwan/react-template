@@ -1,26 +1,26 @@
 import { useState, useEffect, useContext, createContext } from 'react'
 import type { ReactNode } from 'react'
 
-export type ITheme = 'light' | 'dark' | 'system'
-export type IResolvedTheme = 'light' | 'dark'
+export type Theme = 'light' | 'dark' | 'system'
+export type ResolvedTheme = 'light' | 'dark'
 
-export interface IThemeContext {
-  theme: ITheme
-  setTheme: (theme: ITheme) => void
-  resolvedTheme: IResolvedTheme
+export interface ThemeContext {
+  theme: Theme
+  setTheme: (theme: Theme) => void
+  resolvedTheme: ResolvedTheme
 }
 
-export interface IThemeProviderProps {
+export interface ThemeProviderProps {
   storageKey?: string
-  defaultTheme?: ITheme
+  defaultTheme?: Theme
   enableSystem?: boolean
   enableColorScheme?: boolean
   attribute?: string
   children: ReactNode
 }
 
-const themeContext = createContext<IThemeContext | {}>({})
-export const useTheme = () => useContext(themeContext) as IThemeContext
+const themeContext = createContext<ThemeContext | {}>({})
+export const useTheme = () => useContext(themeContext) as ThemeContext
 
 export function ThemeProvider({
   storageKey = 'theme',
@@ -29,17 +29,17 @@ export function ThemeProvider({
   enableColorScheme = true,
   attribute = 'class',
   children,
-}: IThemeProviderProps) {
+}: ThemeProviderProps) {
   // prettier-ignore
   const initialTheme = enableSystem ? defaultTheme : defaultTheme === 'system' ? 'light' : defaultTheme
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 
-  const [theme, _setTheme] = useState<ITheme>(initialTheme)
-  const [resolvedTheme, _setResolvedTheme] = useState<IResolvedTheme>(
+  const [theme, _setTheme] = useState<Theme>(initialTheme)
+  const [resolvedTheme, _setResolvedTheme] = useState<ResolvedTheme>(
     initialTheme === 'system' ? systemTheme : initialTheme
   )
 
-  const updateTheme = (newTheme: ITheme) => {
+  const updateTheme = (newTheme: Theme) => {
     const newResolvedTheme = newTheme === 'system' ? systemTheme : newTheme
 
     _setTheme(newTheme)
@@ -51,13 +51,13 @@ export function ThemeProvider({
       document.documentElement.setAttribute('style', `color-scheme: ${newResolvedTheme};`)
   }
 
-  const setTheme = (newTheme: ITheme) => {
+  const setTheme = (newTheme: Theme) => {
     localStorage.setItem(storageKey, newTheme)
     updateTheme(newTheme)
   }
 
   useEffect(() => {
-    const localTheme = localStorage.getItem(storageKey) as ITheme | null
+    const localTheme = localStorage.getItem(storageKey) as Theme | null
     updateTheme(localTheme ? localTheme : initialTheme)
   }, [])
 

@@ -1,6 +1,6 @@
-import { useTheme, type ITheme } from '@/context/theme'
+import { useTheme, type Theme } from '@/context/theme'
 
-export function Theme() {
+export function SwitchTheme() {
   const { theme, setTheme, resolvedTheme } = useTheme()
 
   return (
@@ -9,7 +9,7 @@ export function Theme() {
         title='switch theme'
         className='bg-white text-black dark:bg-black dark:text-white'
         value={theme}
-        onChange={(e) => setTheme(e.target.value as ITheme)}
+        onChange={(e) => setTheme(e.target.value as Theme)}
       >
         <option value='system'>System</option>
         <option value='light'>Light</option>
