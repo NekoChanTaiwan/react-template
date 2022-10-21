@@ -62,13 +62,7 @@ export function ThemeProvider({
   }, [])
 
   return (
-    <themeContext.Provider
-      value={{
-        theme,
-        setTheme,
-        resolvedTheme,
-      }}
-    >
+    <themeContext.Provider value={{ theme, setTheme, resolvedTheme }}>
       {children}
     </themeContext.Provider>
   )
