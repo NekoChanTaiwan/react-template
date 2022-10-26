@@ -15,6 +15,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-icons: ^4.6.0
+  tailwind-merge: ^1.7.0
   tailwindcss: ^3.2.1
   typescript: ^4.8.4
   vite: ^3.2.0
@@ -26,6 +27,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.6.0_react@18.2.0
+  tailwind-merge: 1.7.0
 
 devDependencies:
   '@types/node': 18.11.7
@@ -1250,6 +1252,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /tailwind-merge/1.7.0:
+    resolution: {integrity: sha512-A7oBapTWhV9M4bwLtxLQS9ZpPrvcikp21l+Xhwbet5SbaxUVogbHGLy+VDZcHe4LHWE99RpRbSpCBKaVqBs5Og==}
+    dev: false
 
   /tailwindcss/3.2.1_postcss@8.4.18:
     resolution: {integrity: sha512-Uw+GVSxp5CM48krnjHObqoOwlCt5Qo6nw1jlCRwfGy68dSYb/LwS9ZFidYGRiM+w6rMawkZiu1mEMAsHYAfoLg==}
